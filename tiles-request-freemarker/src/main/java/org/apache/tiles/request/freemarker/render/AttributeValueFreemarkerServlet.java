@@ -20,7 +20,7 @@
  */
 package org.apache.tiles.request.freemarker.render;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.tiles.request.freemarker.servlet.SharedVariableLoaderFreemarkerServlet;
 

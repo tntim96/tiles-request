@@ -27,8 +27,8 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.io.Writer;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.tiles.request.render.CannotRenderException;
 import org.apache.tiles.request.render.Renderer;

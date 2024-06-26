@@ -37,12 +37,16 @@ under the License.
   </properties>
   <dependencies>
   	<dependency>
-  		<groupId>org.apache.velocity</groupId>
-  		<artifactId>velocity-tools</artifactId>
+  		<groupId>com.github.tntim96.velocity.tools</groupId>
+  		<artifactId>velocity-tools-generic</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>javax.servlet</groupId>
-  		<artifactId>servlet-api</artifactId>
+  		<groupId>com.github.tntim96.velocity.tools</groupId>
+  		<artifactId>velocity-tools-view</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>jakarta.servlet</groupId>
+  		<artifactId>jakarta.servlet-api</artifactId>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
@@ -65,7 +69,7 @@ under the License.
   		<artifactId>tiles-request-servlet</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>org.apache.tiles</groupId>
+  		<groupId>com.github.tntim96</groupId>
   		<artifactId>tiles-autotag-core-runtime</artifactId>
   		<optional>true</optional>
   	</dependency>

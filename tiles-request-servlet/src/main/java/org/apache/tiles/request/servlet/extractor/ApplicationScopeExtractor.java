@@ -22,7 +22,7 @@ package org.apache.tiles.request.servlet.extractor;
 
 import java.util.Enumeration;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import org.apache.tiles.request.attribute.AttributeExtractor;
 

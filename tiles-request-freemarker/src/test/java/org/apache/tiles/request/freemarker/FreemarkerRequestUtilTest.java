@@ -28,9 +28,9 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Locale;
 
-import javax.servlet.GenericServlet;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.GenericServlet;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.request.ApplicationContext;
@@ -38,8 +38,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import freemarker.core.Environment;
-import freemarker.ext.servlet.HttpRequestHashModel;
-import freemarker.ext.servlet.ServletContextHashModel;
+import freemarker.ext.jakarta.servlet.HttpRequestHashModel;
+import freemarker.ext.jakarta.servlet.ServletContextHashModel;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateHashModel;

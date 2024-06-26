@@ -23,8 +23,8 @@ package org.apache.tiles.request.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.ApplicationAccess;

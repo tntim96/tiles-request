@@ -33,7 +33,7 @@ import javax.portlet.PortletContext;
 import javax.portlet.PortletException;
 import javax.portlet.PortletRequestDispatcher;
 import javax.portlet.PortletResponse;
-import javax.servlet.ServletOutputStream;
+import jakarta.servlet.ServletOutputStream;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.collection.HeaderValuesMap;

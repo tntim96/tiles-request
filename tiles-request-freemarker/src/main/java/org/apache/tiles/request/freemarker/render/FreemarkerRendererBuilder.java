@@ -23,7 +23,7 @@ package org.apache.tiles.request.freemarker.render;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.freemarker.FreemarkerRequestException;

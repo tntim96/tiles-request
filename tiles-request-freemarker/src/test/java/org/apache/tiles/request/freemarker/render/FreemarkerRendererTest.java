@@ -29,12 +29,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.URL;
 
-import javax.servlet.GenericServlet;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.GenericServlet;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.render.CannotRenderException;
@@ -43,9 +43,9 @@ import org.apache.tiles.request.servlet.ServletRequest;
 import org.junit.Before;
 import org.junit.Test;
 
-import freemarker.ext.servlet.HttpRequestHashModel;
-import freemarker.ext.servlet.HttpRequestParametersHashModel;
-import freemarker.ext.servlet.ServletContextHashModel;
+import freemarker.ext.jakarta.servlet.HttpRequestHashModel;
+import freemarker.ext.jakarta.servlet.HttpRequestParametersHashModel;
+import freemarker.ext.jakarta.servlet.ServletContextHashModel;
 import freemarker.template.ObjectWrapper;
 
 /**

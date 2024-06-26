@@ -49,13 +49,13 @@ under the License.
             <artifactId>slf4j-api</artifactId>
         </dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -79,7 +79,7 @@ under the License.
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tiles</groupId>
+			<groupId>com.github.tntim96</groupId>
 			<artifactId>tiles-autotag-core-runtime</artifactId>
 			<optional>true</optional>
 		</dependency>

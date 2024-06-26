@@ -20,9 +20,9 @@
  */
 package org.apache.tiles.request.jsp.autotag;
 
-import javax.servlet.jsp.JspContext;
-import javax.servlet.jsp.PageContext;
-import javax.servlet.jsp.tagext.SimpleTagSupport;
+import jakarta.servlet.jsp.JspContext;
+import jakarta.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.tagext.SimpleTagSupport;
 import org.apache.tiles.autotag.core.runtime.ModelBody;
 import org.apache.tiles.autotag.core.runtime.AutotagRuntime;
 import org.apache.tiles.request.Request;

@@ -20,8 +20,8 @@
  */
 package org.apache.tiles.request.jsp;
 
-import javax.servlet.jsp.JspContext;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.JspContext;
+import jakarta.servlet.jsp.PageContext;
 
 import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.request.ApplicationContext;

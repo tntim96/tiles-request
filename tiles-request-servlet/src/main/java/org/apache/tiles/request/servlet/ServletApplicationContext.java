@@ -27,7 +27,7 @@ import java.util.Collection;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.ApplicationResource;

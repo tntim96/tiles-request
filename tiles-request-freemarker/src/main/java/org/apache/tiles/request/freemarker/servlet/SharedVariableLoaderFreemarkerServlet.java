@@ -25,14 +25,14 @@ import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 import org.apache.tiles.request.reflect.ClassUtil;
 
 import freemarker.cache.TemplateLoader;
-import freemarker.ext.servlet.FreemarkerServlet;
+import freemarker.ext.jakarta.servlet.FreemarkerServlet;
 import freemarker.template.Configuration;
 
 /**

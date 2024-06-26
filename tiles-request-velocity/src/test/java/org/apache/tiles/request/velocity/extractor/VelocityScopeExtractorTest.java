@@ -72,7 +72,7 @@ public class VelocityScopeExtractorTest {
      */
     @Test
     public void testGetKeys() {
-        expect(request.getKeys()).andReturn(new Object[] {"one", "two"});
+        expect(request.getKeys()).andReturn(new String[] {"one", "two"});
 
         replay(request);
         Enumeration<String> keys = extractor.getKeys();

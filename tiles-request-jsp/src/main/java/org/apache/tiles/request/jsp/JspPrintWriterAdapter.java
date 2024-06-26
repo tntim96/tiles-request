@@ -23,7 +23,7 @@ package org.apache.tiles.request.jsp;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.JspWriter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

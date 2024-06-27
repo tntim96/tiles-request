@@ -27,7 +27,7 @@ under the License.
         <version>7</version>
         <relativePath />
     </parent>
-    <groupId>org.apache.tiles</groupId>
+    <groupId>com.github.tntim96.tiles</groupId>
     <artifactId>tiles-request</artifactId>
     <version>1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -208,17 +208,17 @@ under the License.
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.apache.tiles</groupId>
+                <groupId>com.github.tntim96.tiles</groupId>
                 <artifactId>tiles-request-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.tiles</groupId>
+                <groupId>com.github.tntim96.tiles</groupId>
                 <artifactId>tiles-request-servlet</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.tiles</groupId>
+                <groupId>com.github.tntim96.tiles</groupId>
                 <artifactId>tiles-request-portlet</artifactId>
                 <version>${project.version}</version>
             </dependency>

@@ -23,10 +23,10 @@ under the License.
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>tiles-request</artifactId>
-    <groupId>org.apache.tiles</groupId>
+    <groupId>com.github.tntim96.tiles</groupId>
     <version>1.1-SNAPSHOT</version>
   </parent>
-  <groupId>org.apache.tiles</groupId>
+  <groupId>com.github.tntim96.tiles</groupId>
   <artifactId>tiles-request-servlet</artifactId>
   <version>1.1-SNAPSHOT</version>
   <name>Tiles request - Servlet support</name>
@@ -37,7 +37,7 @@ under the License.
   </properties>
   <dependencies>
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-api</artifactId>
     </dependency>
     <dependency>

@@ -20,7 +20,7 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tiles</groupId>
+  <groupId>com.github.tntim96.tiles</groupId>
   <artifactId>tiles-request-assembly</artifactId>
   <packaging>pom</packaging>
   <name>Tiles Request Assembly</name>
@@ -28,7 +28,7 @@
   </description>
 
   <parent>
-    <groupId>org.apache.tiles</groupId>
+    <groupId>com.github.tntim96.tiles</groupId>
     <artifactId>tiles-request</artifactId>
     <version>1.1-SNAPSHOT</version>
   </parent>
@@ -144,52 +144,52 @@
   <dependencies>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-api</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-freemarker</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-jsp</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-mustache</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-portlet</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-portlet-wildcard</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-servlet</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-servlet-wildcard</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tiles</groupId>
+      <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-velocity</artifactId>
       <version>${project.version}</version>
     </dependency>

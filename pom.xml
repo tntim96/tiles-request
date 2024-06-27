@@ -62,6 +62,16 @@ under the License.
             <id>apache-site</id>
             <url>scm:svn:https://svn.apache.org/repos/asf/tiles/site/staging/tiles-request</url>
         </site>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>Sonatype repository</id>
+            <name>Sonatype's Maven repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <build>
@@ -147,6 +157,7 @@ under the License.
                     </execution>
                 </executions>
             </plugin>
+<!--
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-scm-publish-plugin</artifactId>
@@ -155,6 +166,7 @@ under the License.
                     <pubScmUrl>scm:svn:https://svn.apache.org/repos/asf/tiles/site/staging/tiles-request</pubScmUrl>
                 </configuration>
             </plugin>
+-->
         </plugins>
 
         <defaultGoal>install</defaultGoal>

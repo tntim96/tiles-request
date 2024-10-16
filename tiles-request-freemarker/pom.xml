@@ -23,12 +23,12 @@ under the License.
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>tiles-request</artifactId>
-    <groupId>com.github.tntim96.tiles</groupId>
-    <version>1.1-SNAPSHOT</version>
+    <groupId>com.github.tntim96.apache.tiles</groupId>
+    <version>1.1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.github.tntim96.tiles</groupId>
+  <groupId>com.github.tntim96.apache.tiles</groupId>
   <artifactId>tiles-request-freemarker</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1.0.0-SNAPSHOT</version>
   <name>Tiles Request - Freemarker support</name>
   <description>Freemarker implementation of the Tiles request framework</description>
   <properties>
@@ -37,7 +37,7 @@ under the License.
   </properties>
   <dependencies>
   	<dependency>
-  		<groupId>com.github.tntim96.tiles</groupId>
+  		<groupId>com.github.tntim96.apache.tiles</groupId>
   		<artifactId>tiles-request-api</artifactId>
   	</dependency>
   	<dependency>
@@ -45,7 +45,7 @@ under the License.
   		<artifactId>freemarker</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>com.github.tntim96.tiles</groupId>
+  		<groupId>com.github.tntim96.apache.tiles</groupId>
   		<artifactId>tiles-request-servlet</artifactId>
   	</dependency>
   	<dependency>
@@ -73,7 +73,7 @@ under the License.
   		<scope>test</scope>
   	</dependency>
   	<dependency>
-  		<groupId>com.github.tntim96</groupId>
+  		<groupId>com.github.tntim96.apache.tiles</groupId>
   		<artifactId>tiles-autotag-core-runtime</artifactId>
   		<optional>true</optional>
   	</dependency>

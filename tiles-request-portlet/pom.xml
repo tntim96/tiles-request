@@ -24,14 +24,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
-    <groupId>com.github.tntim96.tiles</groupId>
+    <groupId>com.github.tntim96.apache.tiles</groupId>
     <artifactId>tiles-request</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1.0.0-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>tiles-request-portlet</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Tiles - Portlet support</name>
   <description>Tiles portlet support, to enable use of Tiles inside a Portlet container.
@@ -66,11 +66,11 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.github.tntim96.tiles</groupId>
+      <groupId>com.github.tntim96.apache.tiles</groupId>
       <artifactId>tiles-request-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.github.tntim96.tiles</groupId>
+      <groupId>com.github.tntim96.apache.tiles</groupId>
       <artifactId>tiles-request-servlet</artifactId>
     </dependency>
 

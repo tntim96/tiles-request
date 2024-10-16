@@ -27,9 +27,9 @@ under the License.
         <version>7</version>
         <relativePath />
     </parent>
-    <groupId>com.github.tntim96.tiles</groupId>
+    <groupId>com.github.tntim96.apache.tiles</groupId>
     <artifactId>tiles-request</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Tiles Request Framework</name>
     <description>Request abstraction for various request and template technologies</description>
@@ -223,26 +223,26 @@ under the License.
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.github.tntim96.tiles</groupId>
+                <groupId>com.github.tntim96.apache.tiles</groupId>
                 <artifactId>tiles-request-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.tntim96.tiles</groupId>
+                <groupId>com.github.tntim96.apache.tiles</groupId>
                 <artifactId>tiles-request-servlet</artifactId>
                 <version>${project.version}</version>
             </dependency>
 <!--
             <dependency>
-                <groupId>com.github.tntim96.tiles</groupId>
+                <groupId>com.github.tntim96.apache.tiles</groupId>
                 <artifactId>tiles-request-portlet</artifactId>
                 <version>${project.version}</version>
             </dependency>
 -->
             <dependency>
-                <groupId>com.github.tntim96</groupId>
+                <groupId>com.github.tntim96.apache.tiles</groupId>
                 <artifactId>tiles-autotag-core-runtime</artifactId>
-                <version>1.3-SNAPSHOT</version>
+                <version>1.3.0.0-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
             <dependency>

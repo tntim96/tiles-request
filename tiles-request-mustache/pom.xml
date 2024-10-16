@@ -29,7 +29,7 @@ under the License.
   <groupId>com.github.tntim96.apache.tiles</groupId>
   <artifactId>tiles-request-mustache</artifactId>
   <name>Tiles request - Mustache support</name>
-  <description>Tiles request implementation for Mustache templates.</description>
+  <description>Tiles request implementation for Mustache templates. Upgraded to the Jakarta EE platform.</description>
   <properties>
       <!-- decrease this whenever possible -->
       <checkstyle.maxAllowedViolations>21</checkstyle.maxAllowedViolations>

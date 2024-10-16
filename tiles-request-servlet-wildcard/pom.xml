@@ -33,7 +33,7 @@
   <artifactId>tiles-request-servlet-wildcard</artifactId>
   <packaging>jar</packaging>
   <name>Tiles Request - Wildcard file loading in Servlets</name>
-  <description>Wildcard file loading in Servlets: Allows to load resources using wildcards.</description>
+  <description>Wildcard file loading in Servlets: Allows to load resources using wildcards. Upgraded to the Jakarta EE platform.</description>
 
   <properties>
   	<tiles.osgi.symbolicName>org.apache.tiles.servlet.wildcard</tiles.osgi.symbolicName>

@@ -24,7 +24,7 @@
   <artifactId>tiles-request-assembly</artifactId>
   <packaging>pom</packaging>
   <name>Tiles Request Assembly</name>
-  <description>Tiles Request Assembly: assembles artifact to produce distributions.
+  <description>Tiles Request Assembly: assembles artifact to produce distributions. Upgraded to the Jakarta EE platform.
   </description>
 
   <parent>

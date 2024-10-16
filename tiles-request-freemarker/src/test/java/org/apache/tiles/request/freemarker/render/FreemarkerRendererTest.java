@@ -40,6 +40,7 @@ import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.render.CannotRenderException;
 import org.apache.tiles.request.servlet.ServletApplicationContext;
 import org.apache.tiles.request.servlet.ServletRequest;
+import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -137,8 +138,11 @@ public class FreemarkerRendererTest {
         expect(servletContext.getRealPath(isA(String.class))).andReturn(null).anyTimes();
         URL resource = getClass().getResource("/test.ftl");
         expect(servletContext.getResource(isA(String.class))).andReturn(resource).anyTimes();
-        expect(servletContext.getAttribute(ATTR_APPLICATION_MODEL)).andReturn(servletContextHashModel);
-        expect(servletContext.getAttribute(ATTR_JSP_TAGLIBS_MODEL)).andReturn(null);
+//        expect(servletContext.getAttribute(ATTR_APPLICATION_MODEL)).andReturn(servletContextHashModel);
+//        expect(servletContext.getAttribute(ATTR_JSP_TAGLIBS_MODEL)).andReturn(null);
+        servletContext.setAttribute(anyObject(), anyObject());
+        servletContext.setAttribute(anyObject(), anyObject());
+        expect(servletContext.getAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern")).andReturn(null);
 
         replay(applicationContext, servletContext, objectWrapper);
 
@@ -162,9 +166,11 @@ public class FreemarkerRendererTest {
         expect(request.getRequest()).andReturn(httpRequest);
         expect(request.getResponse()).andReturn(response);
         expect(request.getPrintWriter()).andReturn(printWriter);
+        expect(httpRequest.getLocale()).andReturn(null);
         expect(httpRequest.getSession(false)).andReturn(null);
         expect(httpRequest.getAttribute(ATTR_REQUEST_MODEL)).andReturn(requestModel);
         expect(httpRequest.getAttribute(ATTR_REQUEST_PARAMETERS_MODEL)).andReturn(parametersModel);
+        expect(response.getContentType()).andReturn("text/html; charset=ISO-8859-1").anyTimes();
         response.setContentType("text/html; charset=ISO-8859-1");
         response.setHeader(eq("Cache-Control"), isA(String.class));
         response.setHeader("Pragma", "no-cache");

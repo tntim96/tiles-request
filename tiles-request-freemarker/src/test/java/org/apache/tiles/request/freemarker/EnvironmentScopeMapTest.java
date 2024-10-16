@@ -29,6 +29,7 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Set;
 
+import freemarker.template.Version;
 import org.junit.Test;
 
 import freemarker.core.Environment;
@@ -60,6 +61,7 @@ public class EnvironmentScopeMapTest {
         expect(template.getMacros()).andReturn(new HashMap<Object, Object>());
         expect(template.getConfiguration()).andReturn(configuration);
         expect(configuration.getSharedVariableNames()).andReturn(names);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3));
 
         replay(template, model, configuration, names);
         Environment env = new Environment(template, model, writer);
@@ -86,6 +88,7 @@ public class EnvironmentScopeMapTest {
         expect(model.keys()).andThrow(new TemplateModelException());
         expect(template.getConfiguration()).andReturn(configuration);
         expect(configuration.getSharedVariableNames()).andReturn(names);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3));
 
         try {
             replay(template, model, configuration, names);

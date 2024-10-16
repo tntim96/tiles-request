@@ -49,8 +49,10 @@ under the License.
         <module>tiles-request-api</module>
         <module>tiles-request-servlet</module>
         <module>tiles-request-servlet-wildcard</module>
+<!--
         <module>tiles-request-portlet</module>
         <module>tiles-request-portlet-wildcard</module>
+-->
         <module>tiles-request-jsp</module>
         <module>tiles-request-freemarker</module>
         <module>tiles-request-velocity</module>
@@ -90,6 +92,7 @@ under the License.
         </pluginRepository>
     </pluginRepositories>
 
+
     <build>
         <pluginManagement>
             <plugins>
@@ -97,8 +100,8 @@ under the License.
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>11</source>
-                        <target>11</target>
+                        <source>17</source>
+                        <target>17</target>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -139,6 +142,13 @@ under the License.
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED</argLine>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
@@ -222,11 +232,13 @@ under the License.
                 <artifactId>tiles-request-servlet</artifactId>
                 <version>${project.version}</version>
             </dependency>
+<!--
             <dependency>
                 <groupId>com.github.tntim96.tiles</groupId>
                 <artifactId>tiles-request-portlet</artifactId>
                 <version>${project.version}</version>
             </dependency>
+-->
             <dependency>
                 <groupId>com.github.tntim96</groupId>
                 <artifactId>tiles-autotag-core-runtime</artifactId>
@@ -262,12 +274,14 @@ under the License.
                     <version>6.0.0</version>
                     <scope>provided</scope>
             </dependency>
+<!--
             <dependency>
                 <groupId>javax.portlet</groupId>
                 <artifactId>portlet-api</artifactId>
                 <version>2.0</version>
                 <scope>provided</scope>
             </dependency>
+-->
             <dependency>
                     <groupId>org.apache.shale</groupId>
                     <artifactId>shale-test</artifactId>
@@ -294,6 +308,12 @@ under the License.
             <dependency>
                 <groupId>jakarta.servlet.jsp</groupId>
                 <artifactId>jakarta.servlet.jsp-api</artifactId>
+                <version>3.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.servlet.jsp.jstl</groupId>
+                <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
                 <version>3.0.0</version>
                 <scope>provided</scope>
             </dependency>

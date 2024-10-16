@@ -27,6 +27,9 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
+
+import freemarker.template.Configuration;
+import freemarker.template.Version;
 import jakarta.servlet.GenericServlet;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
@@ -65,6 +68,7 @@ public class FreemarkerAutotagRuntimeTest {
         @SuppressWarnings("unchecked")
         Map<String, TemplateModel> params = createMock(Map.class);
         Template template = createMock(Template.class);
+        Configuration configuration = createMock(Configuration.class);
         TemplateHashModel rootDataModel = createMock(TemplateHashModel.class);
         Writer out = createMock(Writer.class);
         TemplateDirectiveBody body = createMock(TemplateDirectiveBody.class);
@@ -74,6 +78,9 @@ public class FreemarkerAutotagRuntimeTest {
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
         HttpServletRequest httpServletRequest = createMock(HttpServletRequest.class);
         HttpServletResponse httpServletResponse = createMock(HttpServletResponse.class);
+
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
 
         expect(template.getMacros()).andReturn(new HashMap<String, Macro>());
         expect(servlet.getServletContext()).andReturn(servletContext)
@@ -95,7 +102,7 @@ public class FreemarkerAutotagRuntimeTest {
         expect(rootDataModel.get(FreemarkerServlet.KEY_REQUEST)).andReturn(
                 httpRequestHashModel);
 
-        replay(template, rootDataModel, out);
+        replay(template, rootDataModel, configuration, out);
         Environment env = new Environment(template, rootDataModel, out);
 
         replay(params, body);
@@ -113,10 +120,13 @@ public class FreemarkerAutotagRuntimeTest {
     @Test
     public void testCreateModelBody() {
         Template template = createMock(Template.class);
+        Configuration configuration = createMock(Configuration.class);
         TemplateHashModel rootDataModel = createMock(TemplateHashModel.class);
         Writer out = createMock(Writer.class);
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
         expect(template.getMacros()).andReturn(new HashMap<String, Macro>());
-        replay(template, rootDataModel, out);
+        replay(template, rootDataModel, configuration, out);
         Environment env = new Environment(template, rootDataModel, out);
         @SuppressWarnings("unchecked")
         Map<String, TemplateModel> params = createMock(Map.class);
@@ -132,10 +142,13 @@ public class FreemarkerAutotagRuntimeTest {
     @Test
     public void testGetParameter() throws TemplateModelException {
         Template template = createMock(Template.class);
+        Configuration configuration = createMock(Configuration.class);
         TemplateHashModel rootDataModel = createMock(TemplateHashModel.class);
         Writer out = createMock(Writer.class);
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
         expect(template.getMacros()).andReturn(new HashMap<String, Macro>());
-        replay(template, rootDataModel, out);
+        replay(template, rootDataModel, configuration, out);
         Environment env = new Environment(template, rootDataModel, out);
         TemplateNumberModel model = createMock(TemplateNumberModel.class);
         expect(model.getAsNumber()).andReturn(new Integer(42)).anyTimes();

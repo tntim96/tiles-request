@@ -166,6 +166,7 @@
       <version>${project.version}</version>
     </dependency>
 
+<!--
     <dependency>
       <groupId>com.github.tntim96.tiles</groupId>
       <artifactId>tiles-request-portlet</artifactId>
@@ -176,6 +177,7 @@
       <artifactId>tiles-request-portlet-wildcard</artifactId>
       <version>${project.version}</version>
     </dependency>
+-->
 
     <dependency>
       <groupId>com.github.tntim96.tiles</groupId>

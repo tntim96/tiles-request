@@ -26,6 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -236,7 +237,21 @@ public class URLApplicationResourceTest {
     public void testAdditionalRemoteProtocolViaSystemProperties() throws Exception {
         setProperty(REMOTE_PROTOCOLS_PROPERTY, "test1;test2");
         Field f = URLApplicationResource.class.getDeclaredField("REMOTE_PROTOCOLS");
-        Field m = Field.class.getDeclaredField("modifiers");
+
+        Method getDeclaredFields0 = Class.class.getDeclaredMethod("getDeclaredFields0", boolean.class);
+        getDeclaredFields0.setAccessible(true);
+        Field[] fields = (Field[]) getDeclaredFields0.invoke(Field.class, false);
+        Field modifiersField = null;
+        for (Field each : fields) {
+            if ("modifiers".equals(each.getName())) {
+                modifiersField = each;
+                break;
+            }
+        }
+        modifiersField.setAccessible(true);
+
+        //Field m = Field.class.getDeclaredField("modifiers");
+        Field m = modifiersField;
         m.setAccessible(true);
         m.setInt(f, f.getModifiers() & ~FINAL);
         f.setAccessible(true);

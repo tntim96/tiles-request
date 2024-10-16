@@ -26,6 +26,9 @@ import static org.junit.Assert.*;
 import java.io.Writer;
 import java.util.HashMap;
 
+import freemarker.template.Configuration;
+import freemarker.template.TemplateModel;
+import freemarker.template.Version;
 import org.apache.tiles.request.freemarker.autotag.FreemarkerAutotagException;
 import org.apache.tiles.request.freemarker.autotag.FreemarkerUtil;
 import org.junit.Test;
@@ -52,13 +55,17 @@ public class FreemarkerUtilTest {
     public void testGetAsObject() throws TemplateModelException {
         TemplateNumberModel model = createMock(TemplateNumberModel.class);
         Template template = createMock(Template.class);
+        Configuration configuration = createMock(Configuration.class);
         TemplateHashModel rootDataModel = createMock(TemplateHashModel.class);
         Writer out = createMock(Writer.class);
 
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
         expect(model.getAsNumber()).andReturn(new Integer(42));
         expect(template.getMacros()).andReturn(new HashMap<String, Macro>());
 
-        replay(template, rootDataModel, out);
+
+        replay(template, rootDataModel, configuration, out);
         new Environment(template, rootDataModel, out);
 
         replay(model);
@@ -67,18 +74,21 @@ public class FreemarkerUtilTest {
     }
 
     /**
-     * Test method for {@link FreemarkerUtil#getAsObject(TemplateModel, Object)}.
+     * Test method for {@link FreemarkerUtil#getAsObject(TemplateModel, Class, Object)}.
      * @throws TemplateModelException If something goes wrong.
      */
     @Test
     public void testGetAsObjectDefault() throws TemplateModelException {
         Template template = createMock(Template.class);
+        Configuration configuration = createMock(Configuration.class);
         TemplateHashModel rootDataModel = createMock(TemplateHashModel.class);
         Writer out = createMock(Writer.class);
 
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
         expect(template.getMacros()).andReturn(new HashMap<String, Macro>());
 
-        replay(template, rootDataModel, out);
+        replay(template, rootDataModel, configuration, out);
         new Environment(template, rootDataModel, out);
 
         assertEquals(new Integer(1), FreemarkerUtil.getAsObject(null, Integer.class, new Integer(1)));
@@ -86,20 +96,23 @@ public class FreemarkerUtilTest {
     }
 
     /**
-     * Test method for {@link FreemarkerUtil#getAsObject(TemplateModel, Object)}.
+     * Test method for {@link FreemarkerUtil#getAsObject(TemplateModel, Class, Object)}.
      * @throws TemplateModelException If something goes wrong.
      */
     @Test(expected = FreemarkerAutotagException.class)
     public void testGetAsObjectException() throws TemplateModelException {
         TemplateNumberModel model = createMock(TemplateNumberModel.class);
         Template template = createMock(Template.class);
+        Configuration configuration = createMock(Configuration.class);
         TemplateHashModel rootDataModel = createMock(TemplateHashModel.class);
         Writer out = createMock(Writer.class);
 
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
         expect(model.getAsNumber()).andThrow(new TemplateModelException());
         expect(template.getMacros()).andReturn(new HashMap<String, Macro>());
 
-        replay(template, rootDataModel, out);
+        replay(template, rootDataModel, configuration, out);
         new Environment(template, rootDataModel, out);
 
         replay(model);

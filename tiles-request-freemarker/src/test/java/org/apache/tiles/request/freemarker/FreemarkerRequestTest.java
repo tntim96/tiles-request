@@ -32,6 +32,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import freemarker.template.Configuration;
+import freemarker.template.Version;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -70,6 +72,7 @@ public class FreemarkerRequestTest {
      * The FreeMarker environment.
      */
     private Environment env;
+    private Configuration configuration;
 
     /**
      * The locale object.
@@ -82,13 +85,16 @@ public class FreemarkerRequestTest {
     @Before
     public void setUp() {
         Template template = createMock(Template.class);
+        configuration = createMock(Configuration.class);
         TemplateHashModel model = createMock(TemplateHashModel.class);
         writer = new StringWriter();
-        expect(template.getMacros()).andReturn(new HashMap<Object, Object>());
-        replay(template, model);
-        env = new Environment(template, model, writer);
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
         locale = Locale.ITALY;
-        env.setLocale(locale);
+        expect(template.getLocale()).andReturn(locale).anyTimes();
+        expect(template.getMacros()).andReturn(new HashMap<Object, Object>());
+        replay(template, model, configuration);
+        env = new Environment(template, model, writer);
     }
 
     /**
@@ -98,6 +104,7 @@ public class FreemarkerRequestTest {
     @Test
     public void testCreateServletFreemarkerRequest() throws TemplateModelException {
         Template template = createMock(Template.class);
+        Configuration configuration = createMock(Configuration.class);
         TemplateHashModel model = createMock(TemplateHashModel.class);
         PrintWriter writer = new PrintWriter(new StringWriter());
         HttpServletRequest httpRequest = createMock(HttpServletRequest.class);
@@ -105,16 +112,18 @@ public class FreemarkerRequestTest {
         ObjectWrapper objectWrapper = createMock(ObjectWrapper.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
 
+        expect(template.getLocale()).andReturn(Locale.ITALY).anyTimes();
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
+
         expect(template.getMacros()).andReturn(new HashMap<Object, Object>());
 
         replay(httpRequest, httpResponse, objectWrapper);
         HttpRequestHashModel requestHashModel = new HttpRequestHashModel(httpRequest, httpResponse, objectWrapper);
         expect(model.get("Request")).andReturn(requestHashModel);
 
-        replay(template, model, applicationContext);
+        replay(template, model, configuration, applicationContext);
         Environment env = new Environment(template, model, writer);
-        Locale locale = Locale.ITALY;
-        env.setLocale(locale);
 
         FreemarkerRequest request = FreemarkerRequest.createServletFreemarkerRequest(applicationContext, env);
         ServletRequest servletRequest = (ServletRequest) request.getWrappedRequest();
@@ -158,7 +167,7 @@ public class FreemarkerRequestTest {
     }
 
     /**
-     * Tests {@link FreemarkerRequest#getNativeScopes()}.
+     * Tests {@link FreemarkerRequest#getAvailableScopes()}.
      */
     @Test
     public void testGetAvailableScopes() {
@@ -185,7 +194,7 @@ public class FreemarkerRequestTest {
     }
 
     /**
-     * Tests {@link FreemarkerRequest#getRequest()}.
+     * Tests {@link FreemarkerRequest#getWrappedRequest()}.
      */
     @Test
     public void testGetRequest() {
@@ -230,13 +239,16 @@ public class FreemarkerRequestTest {
     @Test
     public void testGetPrintWriterPrintWriter() {
         Template template = createMock(Template.class);
+        Configuration configuration = createMock(Configuration.class);
+
         TemplateHashModel model = createMock(TemplateHashModel.class);
         PrintWriter writer = new PrintWriter(new StringWriter());
+        expect(template.getLocale()).andReturn(Locale.ITALY).anyTimes();
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
         expect(template.getMacros()).andReturn(new HashMap<Object, Object>());
-        replay(template, model);
+        replay(template, model, configuration);
         Environment env = new Environment(template, model, writer);
-        Locale locale = Locale.ITALY;
-        env.setLocale(locale);
         DispatchRequest enclosedRequest = createMock(DispatchRequest.class);
         expect(enclosedRequest.getAvailableScopes()).andReturn(Collections.singletonList("parent"));
         replay(enclosedRequest);

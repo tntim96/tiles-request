@@ -28,6 +28,8 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Locale;
 
+import freemarker.template.Configuration;
+import freemarker.template.Version;
 import jakarta.servlet.GenericServlet;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
@@ -70,6 +72,7 @@ public class FreemarkerRequestUtilTest {
      * The template.
      */
     private Template template;
+    private Configuration configuration;
 
     /**
      * The template model.
@@ -82,8 +85,11 @@ public class FreemarkerRequestUtilTest {
     @Before
     public void setUp() {
         template = createMock(Template.class);
+        configuration = createMock(Configuration.class);
         model = createMock(TemplateHashModel.class);
         writer = new StringWriter();
+        expect(template.getConfiguration()).andReturn(configuration);
+        expect(configuration.getIncompatibleImprovements()).andReturn(new Version(1, 2, 3)).anyTimes();
         expect(template.getMacros()).andReturn(new HashMap<Object, Object>());
     }
 
@@ -99,12 +105,10 @@ public class FreemarkerRequestUtilTest {
 
         expect(model.get("Request")).andReturn(requestModel);
 
-        replay(template, model, request, objectWrapper);
+        replay(template, model, configuration, request, objectWrapper);
         env = new Environment(template, model, writer);
-        locale = Locale.ITALY;
-        env.setLocale(locale);
         assertEquals(requestModel, FreemarkerRequestUtil.getRequestHashModel(env));
-        verify(template, model, request, objectWrapper);
+        verify(template, model, configuration, request, objectWrapper);
     }
 
     /**
@@ -116,16 +120,15 @@ public class FreemarkerRequestUtilTest {
         HttpServletRequest request = createMock(HttpServletRequest.class);
         ObjectWrapper objectWrapper = createMock(ObjectWrapper.class);
 
+        expect(template.getLocale()).andReturn(Locale.ITALY).anyTimes();
         expect(model.get("Request")).andThrow(new TemplateModelException());
 
-        replay(template, model, request, objectWrapper);
+        replay(template, model, configuration, request, objectWrapper);
         try {
             env = new Environment(template, model, writer);
-            locale = Locale.ITALY;
-            env.setLocale(locale);
             FreemarkerRequestUtil.getRequestHashModel(env);
         } finally {
-            verify(template, model, request, objectWrapper);
+            verify(template, model, configuration, request, objectWrapper);
         }
     }
 
@@ -144,14 +147,13 @@ public class FreemarkerRequestUtilTest {
         replay(servlet, objectWrapper);
         ServletContextHashModel servletContextModel = new ServletContextHashModel(servlet, objectWrapper);
 
+        expect(template.getLocale()).andReturn(Locale.ITALY).anyTimes();
         expect(model.get("Application")).andReturn(servletContextModel);
 
-        replay(template, model, servletContext);
+        replay(template, model, configuration, servletContext);
         env = new Environment(template, model, writer);
-        locale = Locale.ITALY;
-        env.setLocale(locale);
         assertEquals(servletContextModel, FreemarkerRequestUtil.getServletContextHashModel(env));
-        verify(template, model, servlet, servletContext, objectWrapper);
+        verify(template, model, configuration, servlet, servletContext, objectWrapper);
     }
 
     /**
@@ -165,16 +167,15 @@ public class FreemarkerRequestUtilTest {
         ObjectWrapper objectWrapper = createMock(ObjectWrapper.class);
         replay(servlet, objectWrapper);
 
+        expect(template.getLocale()).andReturn(Locale.ITALY).anyTimes();
         expect(model.get("Application")).andThrow(new TemplateModelException());
 
-        replay(template, model);
+        replay(template, model, configuration);
         try {
             env = new Environment(template, model, writer);
-            locale = Locale.ITALY;
-            env.setLocale(locale);
             FreemarkerRequestUtil.getServletContextHashModel(env);
         } finally {
-            verify(template, model, servlet, objectWrapper);
+            verify(template, model, configuration, servlet, objectWrapper);
         }
     }
 
@@ -197,13 +198,12 @@ public class FreemarkerRequestUtilTest {
         replay(servlet, objectWrapper);
         ServletContextHashModel servletContextModel = new ServletContextHashModel(servlet, objectWrapper);
 
+        expect(template.getLocale()).andReturn(Locale.ITALY).anyTimes();
         expect(model.get("Application")).andReturn(servletContextModel);
 
-        replay(template, model, servletContext);
+        replay(template, model, configuration, servletContext);
         env = new Environment(template, model, writer);
-        locale = Locale.ITALY;
-        env.setLocale(locale);
         assertEquals(applicationContext, FreemarkerRequestUtil.getApplicationContext(env));
-        verify(template, model, servlet, servletContext, objectWrapper);
+        verify(template, model, configuration, servlet, servletContext, objectWrapper);
     }
 }

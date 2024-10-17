@@ -37,11 +37,11 @@ under the License.
   </properties>
   <dependencies>
   	<dependency>
-  		<groupId>com.github.tntim96.velocity.tools</groupId>
+  		<groupId>com.github.tntim96.apache.velocity.tools</groupId>
   		<artifactId>velocity-tools-generic</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>com.github.tntim96.velocity.tools</groupId>
+  		<groupId>com.github.tntim96.apache.velocity.tools</groupId>
   		<artifactId>velocity-tools-view</artifactId>
   	</dependency>
   	<dependency>
